@@ -70,16 +70,16 @@ async def send_echo(message: Message):
     await message.reply(message.text)
 
 # Регистрируем хэндлеры
-dp.register_message_handler(process_start_command, commands='start')
-dp.register_message_handler(process_help_command, commands='help')
-dp.register_message_handler(send_photo_echo, content_types=['photo'])
-dp.register_message_handler(send_video_echo, content_types=['video'])
-dp.register_message_handler(send_video_note_echo, content_types=['video_note'])
-dp.register_message_handler(send_sticker_echo, content_types=['sticker'])
-dp.register_message_handler(send_audio_echo, content_types=['audio'])
-dp.register_message_handler(send_voice_echo, content_types=['voice'])
-dp.register_message_handler(send_files,content_types=['document'])
-dp.register_message_handler(send_echo)
+dp.message.register(process_start_command, Command(commands='start'))
+dp.message.register(process_help_command, Command(commands='help'))
+dp.message.register(send_photo_echo, F.photo)
+dp.message.register(send_video_echo, F.video)
+dp.message.register(send_video_note_echo, F.video_note)
+dp.message.register(send_sticker_echo, F.sticker)
+dp.message.register(send_audio_echo, F.audio)
+dp.message.register(send_voice_echo,F.voice)
+dp.message.register(send_files, F.document)
+dp.message.register(send_echo)
 
 if __name__ == '__main__':
     dp.run_polling(bot)
