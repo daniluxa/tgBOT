@@ -31,11 +31,11 @@ dp = Dispatcher()
 
 # Этот хэндлер будет срабатывать на команду "/start"
 async def process_start_command(message: Message):
-    await message.answer('Привет!\nМеня зовут Эхо-бот!\nНапиши мне что-нибудь')
+    await message.answer('Привет!\nМеня зовут Военкомат-бот!\n')
 
 # Этот хэндлер будет срабатывать на команду "/help"
 async def process_help_command(message: Message):
-    await message.answer('Напиши мне что-нибудь и в ответ я пришлю тебе твое сообщение')
+    await message.answer('Напиши мне что-нибудь')
 
 # Этот хэндлер будет срабатывать на отправку фото
 async def send_photo_echo(message: Message):
